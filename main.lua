@@ -47,9 +47,9 @@ function tinyline(x0,y0,x1,y1,color)
     local y = y0
     for x=x0,x1 do
         if steep  then
-            love.graphics.point(y,x)
+            love.graphics.points(y,x)
         else
-            love.graphics.point(x,y)
+            love.graphics.points(x,y)
         end
     end
     error2 = error2 + derror2
