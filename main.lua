@@ -11,7 +11,14 @@ local RED = Color.new(255,0,0)
 local GREEN = Color.new(0,255,0)
 local BLUE = Color.new(0,0,255)
 
+function readFileFromDisk()
+	for line in love.filesystem.lines("african_head.obj") do
+		print(line)
+	end
+end
+
 function love.load()
+	readFileFromDisk()
 end
 
 function love.update(dt)
