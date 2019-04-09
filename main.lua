@@ -1,3 +1,16 @@
+
+local Color = {}
+function Color.new(r,g,b)
+    local self = {}
+    self.r = r
+    self.g = g
+    self.b = b
+    return self
+end
+local RED = Color.new(255,0,0)
+local GREEN = Color.new(0,255,0)
+local BLUE = Color.new(0,0,255)
+
 function love.load()
 end
 
@@ -7,7 +20,8 @@ end
 --[[
     taken from here: https://github.com/ssloy/tinyrenderer/wiki/Lesson-1:-Bresenham%E2%80%99s-Line-Drawing-Algorithm
 ]]
-function tinyline(x0,y0,x1,y1)
+function tinyline(x0,y0,x1,y1,color)
+    love.graphics.setColor(color.r,color.g,color.b)
     local steep = false
     if math.abs(x0-x1)<math.abs(y0-y1) then
         local tmp = x0
@@ -45,5 +59,7 @@ function tinyline(x0,y0,x1,y1)
 end
 
 function love.draw()
-    tinyline(100,100,200,200)
+    tinyline(100,100,200,200,RED)
+    tinyline(100,132,200,132,BLUE)
+    tinyline(100,164,200,164,GREEN)
 end
