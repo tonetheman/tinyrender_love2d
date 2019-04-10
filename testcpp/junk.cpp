@@ -5,6 +5,14 @@
 #include <vector>
 #include "model.h"
 
+void pv(std::vector<int> v) {
+    for (std::vector<int>::const_iterator i = v.begin();
+        i != v.end(); i++) {
+            std::cout << *i << " ";
+        }
+    std::cout << std::endl;
+}
+
 Model::Model(const char *filename) : verts_(), faces_() {
     std::ifstream in;
     in.open (filename, std::ifstream::in);
@@ -27,6 +35,7 @@ Model::Model(const char *filename) : verts_(), faces_() {
                 idx--; // in wavefront obj all indices start at 1, not zero
                 f.push_back(idx);
             }
+            pv(f);
             faces_.push_back(f);
         }
     }
